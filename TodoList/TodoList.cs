@@ -35,7 +35,7 @@ namespace TodoList
             DataBase dataBaseOjb = new DataBase();
             
             cargar();
-            SetListViewColumnSizes(lvTareas, -2);
+            
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -75,6 +75,7 @@ namespace TodoList
                 itemlist.SubItems.Add(Convert.ToString(row[2]));
                 lvTareas.Items.Add(itemlist);
             }
+            SetListViewColumnSizes(lvTareas, -2);
         }
 
         private void Delete()
@@ -124,6 +125,8 @@ namespace TodoList
             dataBaseOjb.CloseConecction();
             MessageBox.Show("Registro actualizado correctamente");
             cargar();
+            txtTarea.Clear();
+            txtDescripcion.Clear();
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
